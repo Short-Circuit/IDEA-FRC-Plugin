@@ -1,0 +1,55 @@
+<idea-plugin version="2">
+  <id>com.shortcircuit.frc.build</id>
+  <name>FRC Compiler Plugin</name>
+  <version>1.0.0</version>
+  <!--vendor email="P_Ir_At_Es@comcast.net" url="http://www.yourcompany.com">YourCompany</vendor-->
+  <vendor email="P_Ir_At_Es@comcast.net">Caleb Milligan</vendor>
+
+  <description><![CDATA[
+      This plugin allows IDEA to compile robot code onto the robot's server.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      <em>None</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+    <component>
+      <implementation-class>com.shortcircuit.frc.build.utils.Startup</implementation-class>
+    </component>
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="FRC_Build.MakeAction" class="com.shortcircuit.frc.build.actions.MakeAction"
+            text="Make Module to _Robot" description="Compile the selected module to the robot" icon="/build_icon.png">
+      <add-to-group group-id="BuildMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift F9"/>
+    </action>
+    <action id="FRC_Build.ConfigureAction"
+            class="com.shortcircuit.frc.build.actions.ConfigureAction" text="_Configure FRC Plugin"
+            description="Configure the FRC plugin">
+      <add-to-group group-id="BuildMenu" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
